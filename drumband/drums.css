@@ -1,0 +1,40 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: rubik;
+}
+.container{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+kbd{
+    display: block;
+}
+.key{
+    width: 120px;
+    height: 80px;
+    margin: 30px;
+    font-size: 20px;
+    color: aqua;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transition: all 0.5s;
+    box-shadow: 1px 1px 12px 1px aqua,
+    3px 3px 12px 1px aqua,
+    inset 1px 2px 12px 1px aqua;
+}
+.playmusic{
+    transform: scale(1.4);
+    box-shadow: 1px 1px 12px 1px goldenrod,
+    3px 3px 12px 1px goldenrod,
+    inset 1px 2px 12px 1px goldenrod;
+}

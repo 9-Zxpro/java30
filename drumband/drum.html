@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="drums.css">
+    <title>drum music</title>
+</head>
+
+<body>
+    <div class="container">
+        <div data-key="65" class="key">
+            <kbd>a</kbd>
+            <span class="sound">dfdfs</span>
+        </div>
+        <div data-key="83" class="key">
+            <kbd>s</kbd>
+            <span class="sound">idfs</span>
+        </div>
+        <div data-key="68" class="key">
+            <kbd>d</kbd>
+            <span class="sound">fis</span>
+        </div>
+        <div data-key="70" class="key">
+            <kbd>f</kbd>
+            <span class="sound">lkis</span>
+        </div>
+        <div data-key="72" class="key">
+            <kbd>h</kbd>
+            <span class="sound">sznx</span>
+        </div>
+        <div data-key="74" class="key">
+            <kbd>j</kbd>
+            <span class="sound">body</span>
+        </div>
+        <div data-key="75" class="key">
+            <kbd>k</kbd>
+            <span class="sound">ss</span>
+        </div>
+    </div>
+    <audio data-key="65" src="falling-effect.wav"></audio>
+    <audio data-key="83" src="rising-harp.wav"></audio>
+    <audio data-key="68" src="piano-game.wav"></audio>
+    <audio data-key="70" src="game-over.wav"></audio>
+    <audio data-key="72" src="piano.wav"></audio>
+    <audio data-key="74" src="levelmusic.wav"></audio>
+    <audio data-key="75" src="losing-piano.wav"></audio>
+
+    <script>
+        function plasound(e) {
+        const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+        const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
+        if(!audio) return;
+        audio.play();
+        key.classList.add('playmusic');
+    };
+    
+    function removetransition(e) {
+        if (e.propertyName !== 'transform') {
+            return;
+        }
+        this.classList.remove('playmusic');
+    }
+    const keys = document.querySelectorAll('.key');
+    keys.forEach( key => {key.addEventListener('transitionend', removetransition)});
+    window.addEventListener('keydown', plasound);
+    </script>
+</body>
+
+</html>

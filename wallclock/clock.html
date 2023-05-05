@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="clocks.css">
+    <title>Clock</title>
+</head>
+<body>
+    <div class="frame">
+        <div class="clock-ring">
+            <div class="hour bar"></div>
+            <div class="minute bar"></div>
+            <div class="second bar"></div>
+            <div class="gola"></div>
+        </div>
+    </div>
+
+<script>
+    const second = document.querySelector('.second');
+    const minute = document.querySelector('.minute');
+    const hour = document.querySelector('.hour');
+    function setdate(e) {
+        const now = new Date();
+        const sec = now.getSeconds();
+        const secDeg = ((sec/60)*360) + 90;
+        second.style.transform = `rotate(${secDeg}deg)`;
+        console.log(secDeg);
+
+        const min = now.getMinutes();
+        const minDeg = ((min/60)*360) +90;
+        minute.style.transform = `rotate(${minDeg}deg)`;
+        
+        const ho = now.getHours();
+        const houDeg = ((ho/12)*360) +90;
+        hour.style.transform = `rotate(${houDeg}deg)`;
+    }
+    setInterval(setdate, 1000);
+</script>
+</body>
+</html>
